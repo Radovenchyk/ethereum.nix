@@ -29,7 +29,7 @@ buildGoModule rec {
   ldflags = ["-extldflags \"-Wl,--allow-multiple-definition\""];
   inherit subPackages;
 
-  # passthru.updateScript = nix-update-script {};
+  passthru.updateScript = nix-update-script {};
 
   meta = {
     description = "Ethereum node implementation focused on scalability and modularity";

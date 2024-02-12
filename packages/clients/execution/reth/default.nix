@@ -35,6 +35,8 @@ rustPlatform.buildRustPackage rec {
   # Needed by libmdx
   LIBCLANG_PATH = "${llvmPackages.libclang.lib}/lib";
 
+  passthru.updateScript = {};
+
   meta = {
     description = "Modular, contributor-friendly and blazing-fast implementation of the Ethereum protocol, in Rust";
     homepage = "https://github.com/paradigmxyz/reth";
