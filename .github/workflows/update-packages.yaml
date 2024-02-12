@@ -15,8 +15,6 @@ jobs:
         id: update
         uses: selfuryon/nix-update-action@v1.0.0
         with:
-          # TODO: remove nethermind after we fix build for them
-          # TODO: remove mev-boost after they make a new release tag
           blacklist: "staking-deposit-cli,dreamboat,bls,blst,evmc,mcl,besu,teku,docs,foundry,web3signer,mev-boost-prysm,vscode-plugin-consensys-vscode-solidity-visual-editor,vscode-plugin-ackee-blockchain-solidity-tools,mev-boost,nethermind"
           sign-commits: true
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
@@ -25,7 +23,7 @@ jobs:
           pr-title: "chore: update packages"
           pr-labels: |
             dependencies
-            automated
             auto-merge
+            priority-urgent
       - name: Print PR number
         run: echo Pull request number is ${{ steps.update.outputs.pull-request-number }}.

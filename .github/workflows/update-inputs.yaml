@@ -22,8 +22,8 @@ jobs:
           pr-title: "chore: update flake.lock"
           commit-msg: "chore: update flake.lock"
           pr-labels: |
-            dependencies
-            automated
             auto-merge
+            flake-inputs
+            priority-low
       - name: Print PR number
         run: echo Pull request number is ${{ steps.update.outputs.pull-request-number }}.
