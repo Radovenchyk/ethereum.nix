@@ -5,14 +5,23 @@ defaults:
 
 queue_rules:
   - name: default
-    conditions:
+    queue_conditions:
       - check-success=buildbot/nix-eval
+    priority_rules:
+      - name: high-priority
+        conditions:
+          - label=priority-urgent
+        priority: high
+      - name: low-priority
+        conditions:
+          - label=priority-low
+        priority: low
 
 pull_request_rules:
   - name: Automerge PRs using the merge queue
     conditions:
-      - "label=merge-queue"
-      - "base=main"
+      - label~=merge-queue|automerge
+      - base=main
     actions:
       queue:
         name: default
@@ -20,6 +29,6 @@ pull_request_rules:
 
   - name: Delete head branch after merge
     conditions:
-      - "merged"
+      - merged
     actions:
       delete_head_branch: {}

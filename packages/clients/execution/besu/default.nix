@@ -7,7 +7,7 @@
 }:
 stdenv.mkDerivation rec {
   pname = "besu";
-  version = "24.1.0";
+  version = "24.1.2";
 
   src = fetchurl {
     url = "https://hyperledger.jfrog.io/hyperledger/${pname}-binaries/${pname}/${version}/${pname}-${version}.tar.gz";
@@ -23,6 +23,8 @@ stdenv.mkDerivation rec {
     cp -r lib $out/
     wrapProgram $out/bin/${pname} --set JAVA_HOME "${jre}"
   '';
+
+  passthru.updateScript = ./update.sh;
 
   meta = with lib; {
     description = "Besu is an Apache 2.0 licensed, MainNet compatible, Ethereum client written in Java";
