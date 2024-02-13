@@ -95,7 +95,7 @@
         ./modules
         ./pkgs
       ];
-      systems = import systems;
+      systems = (import systems) ++ ["i686-linux"];
       perSystem = {
         config,
         pkgs,
