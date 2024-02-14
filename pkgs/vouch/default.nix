@@ -23,7 +23,9 @@ buildGoModule rec {
 
   doCheck = false;
 
-  passthru.updateScript = nix-update-script {};
+  passthru.updateScript = nix-update-script {
+    extraArgs = ["--flake"];
+  };
 
   meta = {
     description = "An Ethereum 2 multi-node validator client";
