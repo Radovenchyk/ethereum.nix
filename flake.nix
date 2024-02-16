@@ -145,6 +145,7 @@
           flakeCheck = true;
           programs = {
             alejandra.enable = true;
+            black.enable = true;
             deadnix.enable = true;
             deno.enable = false;
             mdformat.enable = true;
