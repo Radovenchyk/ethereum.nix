@@ -24,6 +24,8 @@ stdenv.mkDerivation rec {
     wrapProgram $out/bin/${pname} --set JAVA_HOME "${jre}"
   '';
 
+  passthru.updateScript = ./update.sh;
+
   meta = with lib; {
     description = "Besu is an Apache 2.0 licensed, MainNet compatible, Ethereum client written in Java";
     homepage = "https://github.com/hyperledger/besu";
