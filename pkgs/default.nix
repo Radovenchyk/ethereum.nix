@@ -46,6 +46,7 @@
       });
       geth = callPackage ./geth {};
       geth-sealer = callPackage ./geth-sealer {};
+      geth-hdwallet = callPackage ./geth-hdwallet {};
       heimdall = callPackage ./heimdall {};
       lighthouse = callPackageUnstable ./lighthouse {inherit foundry;};
       mcl = callPackage ./mcl {};
@@ -105,6 +106,7 @@
         geth-rlpdump.bin = "rlpdump";
       };
       geth-sealer.bin = "geth";
+      geth-hdwallet.bin = "geth-hdwallet";
       lighthouse.bin = "lighthouse";
       mev-boost-builder.bin = "geth";
       mev-boost-prysm.bin = "beacon-chain";
